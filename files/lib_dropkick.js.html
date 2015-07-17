@@ -219,7 +219,12 @@
                              * @type string
                              *
                              */
-                            search: &quot;strict&quot;
+                            search: &quot;strict&quot;,
+                        
+                            /**
+                             * Bubble up the custom change event attached to Dropkick to the original element (select).
+                             */
+                            bubble: true
                           },
                         
                           // Common Utilities
@@ -811,7 +816,7 @@
                               this.value = select.value;
                         
                               if ( !disabled ) {
-                                this.data.select.dispatchEvent( new CustomEvent( &quot;change&quot; ) );
+                                this.data.select.dispatchEvent( new CustomEvent(&quot;change&quot;, {bubbles: this.data.settings.bubble}));
                               }
                         
                               return elem;
